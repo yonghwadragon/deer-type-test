@@ -9,7 +9,7 @@ export default function Home() {
         <title>게임형 설문 웹앱</title>
         <meta name="description" content="게임형 설문을 통해 건강 제품을 추천합니다" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon_antlers_pair.ico" />
       </Head>
 
       <main style={{ padding: "40px", textAlign: "center", fontFamily: "sans-serif" }}>
