@@ -1,0 +1,154 @@
+.characterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  height: 200px;
+  margin: 20px 0;
+}
+
+.character {
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* 캐릭터 이동 애니메이션 클래스 */
+.moveLeft {
+  transform: translateX(-100px);
+}
+
+.moveCenter {
+  transform: translateX(0);
+}
+
+.moveRight {
+  transform: translateX(100px);
+}
+
+/* 그림자 스타일 */
+.shadow {
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  z-index: 5;
+  transform: translateY(10px);
+  transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+}
+
+/* 임시 사슴 캐릭터 스타일 */
+.deerPlaceholder {
+  width: 120px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deerHead {
+  width: 80px;
+  height: 80px;
+  background-color: #d9b38c;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.deerEar {
+  width: 20px;
+  height: 30px;
+  background-color: #d9b38c;
+  border-radius: 50% 50% 0 0;
+  position: absolute;
+  top: -15px;
+}
+
+.deerEar:first-child {
+  left: 15px;
+  transform: rotate(-15deg);
+}
+
+.deerEar:last-child {
+  right: 15px;
+  transform: rotate(15deg);
+}
+
+.deerFace {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.deerEye {
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.deerNose {
+  width: 16px;
+  height: 16px;
+  background-color: #666;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.deerBody {
+  width: 60px;
+  height: 80px;
+  background-color: #d9b38c;
+  border-radius: 30px;
+  margin-top: -20px;
+}
+
+/* 위치 표시기 스타일 */
+.positionIndicator {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.position {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.position.active {
+  background-color: #666;
+  transform: scale(1.2);
+}
+
+/* 캐릭터가 좌우로 이동할 때 약간 튀는 효과 추가 */
+.character:not(.moveCenter) {
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+  .moveLeft { transform: translateX(-50px); }
+  .moveRight { transform: translateX(50px); }
+  .deerPlaceholder { transform: scale(0.8); }
+}
