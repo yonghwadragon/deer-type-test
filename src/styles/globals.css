@@ -40,3 +40,10 @@ a {
     color-scheme: dark;
   }
 }
+
+@font-face {
+  font-family: 'DNFBitBitv2';
+  src: url('/fonts/DNFBitBitv2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
