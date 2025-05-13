@@ -96,7 +96,7 @@ export default function Home() {
               </div>
             </div>
 
-            <h1 className={styles.title}>🦌 지친 나를 위한 테스트 !! 🦌</h1>
+            <h1 className={styles.title}>🦌 지친 나를 위한 테스트 !!</h1>
             <p className={styles.subtitle}>
               간단한 테스트를 통해<br />나에게 맞는 건강 솔루션을 찾아봐!
             </p>
