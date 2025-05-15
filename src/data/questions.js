@@ -1,135 +1,125 @@
-// 설문 게임에 사용될 질문과 선택지 데이터
+// src/data/questions.js
+
 export const questions = [
   {
     id: 1,
-    text: "하루 종일 피곤하고 지쳐있나요?",
+    text: "요즘 밥 잘 챙겨 먹고 있어?",
     options: [
-      { id: "yes", text: "네, 항상 그래요", direction: "left" },
-      { id: "no", text: "아니요, 괜찮아요", direction: "right" }
+      { id: "no", text: "아니, 자주 거르거나 대충 먹어", direction: "left" },
+      { id: "yes", text: "응, 잘 챙겨 먹고 있어!", direction: "right" }
     ],
-    voiceText: "하루 종일 피곤하고 지쳐있나요? 왼쪽은 네, 오른쪽은 아니요를 선택해주세요."
+    voiceText: "요즘 밥 잘 챙겨 먹고 있어? 오른쪽은 응, 왼쪽은 아니야를 눌러줘."
   },
   {
     id: 2,
-    text: "집중력이 떨어지는 것을 느끼시나요?",
+    text: "요즘 관절이나 뼈에 관심 있어?",
     options: [
-      { id: "yes", text: "네, 자주 그래요", direction: "left" },
-      { id: "no", text: "아니요, 별로요", direction: "right" }
+      { id: "yes", text: "응! 건강 챙기고 싶어", direction: "left" },
+      { id: "no", text: "아니, 아직은 괜찮은 것 같아", direction: "right" }
     ],
-    voiceText: "집중력이 떨어지는 것을 느끼시나요? 왼쪽은 네, 오른쪽은 아니요를 선택해주세요."
+    voiceText: "요즘 관절이나 뼈에 관심 있어? 왼쪽은 응, 오른쪽은 아니야를 눌러줘."
   },
   {
     id: 3,
-    text: "스트레스를 많이 받고 있나요?",
+    text: "너 혹시... 아이 입맛이야?",
     options: [
-      { id: "yes", text: "네, 많이요", direction: "left" },
-      { id: "no", text: "아니요, 적당해요", direction: "right" }
+      { id: "yes", text: "ㅋㅋ 맞아! 편식 좀 해", direction: "left" },
+      { id: "no", text: "아냐~ 아무거나 잘 먹어", direction: "right" }
     ],
-    voiceText: "스트레스를 많이 받고 있나요? 왼쪽은 네, 오른쪽은 아니요를 선택해주세요."
+    voiceText: "너 혹시… 아이 입맛이야? 왼쪽은 맞아, 오른쪽은 아니야를 눌러줘."
   },
   {
     id: 4,
-    text: "잠을 잘 못 주무시나요?",
+    text: "기력 떨어진 거 같지 않아?",
     options: [
-      { id: "yes", text: "네, 잠이 부족해요", direction: "left" },
-      { id: "no", text: "아니요, 잘 자요", direction: "right" }
+      { id: "yes", text: "맞아, 요즘 좀 힘들어", direction: "left" },
+      { id: "no", text: "아니, 나름 괜찮아!", direction: "right" }
     ],
-    voiceText: "잠을 잘 못 주무시나요? 왼쪽은 네, 오른쪽은 아니요를 선택해주세요."
+    voiceText: "기력 떨어진 거 같지 않아? 왼쪽은 맞아, 오른쪽은 아니야를 눌러줘."
   },
   {
     id: 5,
-    text: "면역력이 약하다고 느끼시나요?",
+    text: "혹시 요즘 다이어트 중이야?",
     options: [
-      { id: "yes", text: "네, 자주 아파요", direction: "left" },
-      { id: "no", text: "아니요, 튼튼해요", direction: "right" }
+      { id: "yes", text: "응! 식단도 조절하고 있어", direction: "left" },
+      { id: "no", text: "아니~ 지금은 아냐!", direction: "right" }
     ],
-    voiceText: "면역력이 약하다고 느끼시나요? 왼쪽은 네, 오른쪽은 아니요를 선택해주세요."
+    voiceText: "혹시 요즘 다이어트 중이야? 왼쪽은 응, 오른쪽은 아니야를 눌러줘."
   }
 ];
 
-// 결과 타입에 따른 제품 추천 데이터
 export const results = {
-  "exhausted": {
-    title: "지친 활력형",
-    description: "일상생활에서 활력이 부족하고 지친 상태입니다. 활력을 높여주는 제품이 필요해요.",
+  energy: {
+    title: "기력 회복형",
+    description: "요즘 체력 떨어지고 피곤한 날이 많지? 활력을 채워줄 제품이 필요해!",
     recommendedProduct: {
-      name: "바이오닷 활력 제품",
-      description: "녹용의 핵심 성분이 신체 활력을 높여주고 피로 회복에 도움을 줍니다.",
-      ingredients: ["녹용 추출물", "인삼 추출물", "비타민 B 복합체"],
-      benefits: [
-        "에너지 레벨 향상",
-        "피로 회복 도움",
-        "신체 활력 증진"
-      ]
+      name: "한동녹용연구소 녹용 진액 엑기스",
+      description: "녹용과 홍삼, 대추 등이 들어간 진한 농축 엑기스로 기력 회복에 딱이야.",
+      ingredients: ["녹용 추출액", "홍삼", "대추", "복분자"],
+      benefits: ["기력 회복", "피로 개선", "신체 활력 증진"]
     },
-    voiceText: "지친 활력형이시군요. 일상생활에서 활력이 부족하고 지친 상태입니다. 바이오닷의 활력 제품이 도움이 될 수 있어요."
+    voiceText: "기력 회복형이야! 요즘 피곤할 땐 이 제품이 딱이야."
   },
-  "stressed": {
-    title: "스트레스 집중형",
-    description: "스트레스가 많고 집중력이 떨어지는 상태입니다. 정신 건강과 집중력을 높이는 제품이 필요해요.",
+  kids: {
+    title: "성장 아이 입맛 타입",
+    description: "입맛이 아이처럼 귀엽네! 그래서 더 맛있는 건강식이 필요해~",
     recommendedProduct: {
-      name: "바이오닷 집중력 제품",
-      description: "녹용과 특수 허브 성분이 정신 건강과 집중력을 향상시키는데 도움을 줍니다.",
-      ingredients: ["녹용 추출물", "은행잎 추출물", "오메가-3"],
-      benefits: [
-        "집중력 향상",
-        "기억력 증진",
-        "스트레스 완화"
-      ]
+      name: "한동 키즈튼튼 녹용 칼슘스틱",
+      description: "이거 이름은 키즈지만 어른도 좋아해! 달달한 젤리라서 거부감 없이 먹을 수 있고 아이 성장 발달에 좋아!",
+      ingredients: ["녹용", "칼슘", "비타민D", "홍삼"],
+      benefits: ["성장 발달 지원", "면역력 강화", "맛있는 섭취"]
     },
-    voiceText: "스트레스 집중형이시군요. 스트레스가 많고 집중력이 떨어지는 상태입니다. 바이오닷의 집중력 제품이 도움이 될 수 있어요."
+    voiceText: "아이 입맛이구나~ 건강식도 맛있게 챙겨 먹자! 이거 진짜 맛있어."
   },
-  "immunity": {
-    title: "면역력 부족형",
-    description: "면역력이 약하고 쉽게 피로를 느끼는 상태입니다. 면역력을 높이는 제품이 필요해요.",
+  joint: {
+    title: "관절 뼈 건강형",
+    description: "뼈 건강에 관심 있는 당신, 구미 젤리로 간편하게 챙겨봐!",
     recommendedProduct: {
-      name: "바이오닷 면역력 제품",
-      description: "녹용의 면역 강화 성분이 면역 체계를 지원하고 건강을 유지하는데 도움을 줍니다.",
-      ingredients: ["녹용 추출물", "프로폴리스", "비타민 C, D"],
-      benefits: [
-        "면역력 강화",
-        "건강 유지",
-        "항산화 작용"
-      ]
+      name: "신수지 관절 칼슘 구미",
+      description: "맛있게 먹는 뼈 건강 젤리! 칼슘과 비타민이 풍부해.",
+      ingredients: ["칼슘", "비타민D", "콜라겐", "MSM"],
+      benefits: ["관절/뼈 건강", "칼슘 흡수 도움", "간편한 섭취"]
     },
-    voiceText: "면역력 부족형이시군요. 면역력이 약하고 쉽게 피로를 느끼는 상태입니다. 바이오닷의 면역력 제품이 도움이 될 수 있어요."
+    voiceText: "관절 뼈 건강형이야! 구미로 챙기는 건강, 어때?"
   },
-  "balanced": {
-    title: "균형 잡힌 건강형",
-    description: "비교적 건강한 상태지만 더 나은 컨디션을 위한 관리가 필요합니다.",
+  slim: {
+    title: "다이어트 관리형",
+    description: "요즘 식단 조절 중이지? 맛있고 든든한 대체 식사가 필요해!",
     recommendedProduct: {
-      name: "바이오닷 종합 건강 제품",
-      description: "녹용의 다양한 영양소와 성분이 전반적인 건강 유지에 도움을 줍니다.",
-      ingredients: ["녹용 추출물", "종합 비타민", "미네랄 복합체"],
-      benefits: [
-        "전반적인 건강 관리",
-        "활력 유지",
-        "신체 균형 지원"
-      ]
+      name: "디어V슬림 다이어트 쉐이크",
+      description: "한 끼 대용으로 좋은 단백질 쉐이크야. 포만감도 굿!",
+      ingredients: ["단백질", "귀리", "비타민 미네랄"],
+      benefits: ["포만감 제공", "식사 대체", "다이어트 보조"]
     },
-    voiceText: "균형 잡힌 건강형이시군요. 비교적 건강한 상태지만 더 나은 컨디션을 위한 관리가 필요합니다. 바이오닷의 종합 건강 제품이 도움이 될 수 있어요."
+    voiceText: "다이어트 관리형이야! 든든하고 건강한 쉐이크 추천해."
+  },
+  senior: {
+    title: "기력·수면 보강형",
+    description: "수면이나 어르신 기력 걱정된다면 이게 좋아!",
+    recommendedProduct: {
+      name: "침향 효력환",
+      description: "녹용과 침향이 들어간 전통 환제로 기력과 숙면에 도움 줘!",
+      ingredients: ["침향", "녹용", "산수유", "작약"],
+      benefits: ["숙면 유도", "기력 보충", "어르신 건강 지원"]
+    },
+    voiceText: "기력·수면 보강형이야! 어르신 건강도 중요하지~"
   }
 };
 
-// 응답에 따라 결과를 계산하는 함수
 export const calculateResult = (answers) => {
-  // 예시 로직: 대답에 따라 점수 계산
-  let yesCount = 0;
-  
-  Object.values(answers).forEach(answer => {
-    if (answer === "yes") {
-      yesCount++;
-    }
-  });
-  
-  // 결과 결정 로직 (간단한 예시)
-  if (yesCount >= 4) {
-    return "exhausted"; // 매우 지친 상태
-  } else if (yesCount >= 3) {
-    return "stressed"; // 스트레스 많은 상태
-  } else if (yesCount >= 2) {
-    return "immunity"; // 면역력 관리 필요
-  } else {
-    return "balanced"; // 균형잡힌 상태
-  }
+  let score = {
+    energy: 0,
+    kids: 0,
+    joint: 0,
+    slim: 0,
+    senior: 0
+  };
+
+  if (answers[1] === "no") score.energy++;
+  if (answers[2] === "yes") score.joint++;
+  if (answers[3] === "yes") score.kids++;
+  if (answers[4] === "yes") score.senior++;
+  if (answers[5] === "yes") score.slim++;
+
+  return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
 };
