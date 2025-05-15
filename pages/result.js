@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 
 const ResultScreen = dynamic(
-  () => import("../src/components/Game/Result/ResultScreen"),
+  () => import("../src/components/Result/ResultScreen"),
   { ssr: false }
 );
 
