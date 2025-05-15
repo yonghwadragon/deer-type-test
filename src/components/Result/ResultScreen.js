@@ -1,23 +1,11 @@
 // ResultScreen.js
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useGame } from '@/context/GameContext';
 import { results } from '@/data/questions';
-import { speakText, stopSpeaking } from '@/utils/tts';
-
 
 const ResultScreen = () => {
   const { resultType, restartGame } = useGame();
-
   const resultData = results[resultType];
-
-  useEffect(() => {
-    if (resultData && resultData.voiceText) {
-      stopSpeaking();
-      speakText(resultData.voiceText);
-    }
-
-    return () => stopSpeaking();
-  }, [resultData]);
 
   if (!resultData) {
     return (

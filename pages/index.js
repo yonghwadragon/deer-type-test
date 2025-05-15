@@ -23,13 +23,16 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  // interaction 시작: 오디오 + 타이핑
-  const startInteraction = () => {
+  //  클릭 이벤트 내부에서 오디오, 타이핑 실행
+  const handleStartClick = () => {
     if (hasPlayed) return;
     setHasPlayed(true);
-    // 목소리 재생
-    introAudio.current?.play?.().catch(() => {});
-    // 타이핑 애니메이션
+
+    //  클릭 시 오디오 실행
+    clickAudio.current?.play?.().catch((e) => console.warn("click 재생 실패", e));
+    introAudio.current?.play?.().catch((e) => console.warn("intro 재생 실패", e));
+
+    //  타이핑 애니메이션
     let idx = 0;
     setDisplayed("");
     const typeInterval = setInterval(() => {
@@ -38,13 +41,9 @@ export default function Home() {
         setReady(true);
         return;
       }
-      setDisplayed(prev => prev + fullText.charAt(idx));
+      setDisplayed((prev) => prev + fullText.charAt(idx));
       idx++;
     }, 120);
-  };
-
-  const handleStart = () => {
-    clickAudio.current?.play?.();
   };
 
   return (
@@ -56,8 +55,8 @@ export default function Home() {
       </Head>
 
       {/* 사운드 리소스 */}
-      <audio ref={introAudio} src="/audio/사슴이_intro.mp3" preload="auto" />
-      <audio ref={clickAudio} src="/audio/click.mp3" preload="auto" />
+      <audio ref={introAudio} src="/audio/사슴이_intro.mp3" preload="auto" playsInline />
+      <audio ref={clickAudio} src="/audio/click.mp3" preload="auto" playsInline />
 
       <main className={styles.container}>
         {loading && <p className={styles.loadingText}>🦌 준비 중...</p>}
@@ -66,7 +65,7 @@ export default function Home() {
           <>
             {!hasPlayed && (
               <button
-                onClick={startInteraction}
+                onClick={handleStartClick}
                 style={{
                   position: 'fixed', top: '50%', left: '50%',
                   transform: 'translate(-50%, -50%)',
@@ -101,11 +100,26 @@ export default function Home() {
               간단한 테스트를 통해<br />나에게 맞는 건강 솔루션을 찾아봐!
             </p>
 
-            <Link href={ready ? "/game" : "#"} onClick={handleStart}>
-              <button className={styles.startButton} disabled={!ready}>
-                🚀 테스트 시작 !!
-              </button>
-            </Link>
+{ready ? (
+  <Link href="/game">
+    <button
+      className={styles.startButton}
+      onMouseDown={() => {
+        clickAudio.current?.play?.().catch(e => console.warn("click 재생 실패", e));
+      }}
+    >
+      🚀 테스트 시작 !!
+    </button>
+  </Link>
+) : (
+  <button
+    className={styles.startButton}
+    onClick={handleStartClick}
+    disabled
+  >
+    🚀 테스트 시작 !!
+  </button>
+)}
           </>
         )}
       </main>

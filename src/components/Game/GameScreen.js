@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useGame } from '../../context/GameContext';
 import Character from '../Character/Character';
 import styles from './GameScreen.module.css';
-import { speakText, stopSpeaking } from '../../utils/tts';
 
 const GameScreen = () => {
   const { 
@@ -19,31 +18,6 @@ const GameScreen = () => {
       startGame();
     }
   }, [gameState, startGame]);
-  
-  // 현재 질문이 바뀔 때마다 음성 안내
-  useEffect(() => {
-    if (currentQuestion && gameState === 'playing') {
-      // 이전 음성 중지
-      stopSpeaking();
-      
-      // 질문 음성 재생 (약간의 지연 후)
-      const timer = setTimeout(() => {
-        speakText(currentQuestion.voiceText);
-      }, 500);
-      
-      return () => {
-        clearTimeout(timer);
-        stopSpeaking();
-      };
-    }
-  }, [currentQuestion, gameState]);
-  
-  // 컴포넌트가 언마운트될 때 음성 중지
-  useEffect(() => {
-    return () => {
-      stopSpeaking();
-    };
-  }, []);
   
   // 사용자가 선택지를 고를 때 처리하는 함수
   const handleOptionSelect = (questionId, answerId, direction) => {
