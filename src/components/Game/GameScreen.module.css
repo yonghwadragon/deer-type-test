@@ -153,12 +153,16 @@
   }
   
   .optionsContainer {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row; /* 항상 좌우 유지 */
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 100%;
   }
   
   .option {
-    width: 100%;
+    width: 45%;
+    min-width: 140px  
   }
   
   .directionGuide {
