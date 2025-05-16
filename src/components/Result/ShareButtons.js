@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './ShareButtons.module.css';
 
-const SITE_URL = "https://deer-type-test-gg3s.vercel.app/";
+const SITE_URL = "https://deer-type-test.vercel.app/";
 
 const ShareButtons = ({ resultType }) => {
   // 이미지 공유(캡처)는 추후 적용, 지금은 링크 중심
