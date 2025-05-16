@@ -33,7 +33,7 @@ const GameScreen = () => {
     return (
       <div className={styles.loadingScreen}>
         <div className={styles.loadingSpinner}></div>
-        <p>게임 준비 중...</p>
+        <p>🦌 준비 중...</p>
       </div>
     );
   }

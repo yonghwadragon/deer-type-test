@@ -2,6 +2,11 @@
 import React from 'react';
 import { useGame } from '@/context/GameContext';
 import { results } from '@/data/questions';
+import ResultHeader from './ResultHeader';
+import ProductCard from './ProductCard';
+import ShareButtons from './ShareButtons';
+import ReelsSlider from './ReelsSlider';
+import styles from './ResultScreen.module.css';
 
 const ResultScreen = () => {
   const { resultType, restartGame } = useGame();
@@ -11,49 +16,24 @@ const ResultScreen = () => {
     return (
       <div style={{ padding: '40px', textAlign: 'center' }}>
         <h2>결과를 불러올 수 없어 😥</h2>
-        <button onClick={restartGame}>처음부터 다시 해볼래!</button>
+        <button className={styles.restartButton} onClick={restartGame}>처음부터 다시 해볼래!</button>
       </div>
     );
   }
 
   return (
     <div style={{ padding: '40px', maxWidth: '600px', margin: '0 auto' }}>
-      <h1>✨ {resultData.title}</h1>
-      <p>{resultData.description}</p>
+      <ResultHeader resultType={resultType} />
 
+      <ShareButtons resultType={resultType} />
       <hr style={{ margin: '20px 0' }} />
 
-      <h2>🦌 추천 제품: {resultData.recommendedProduct.name}</h2>
-      <p>{resultData.recommendedProduct.description}</p>
+      <ProductCard product={resultData.recommendedProduct} resultType={resultType} />
 
-      <h3>📦 주요 성분</h3>
-      <ul>
-        {resultData.recommendedProduct.ingredients.map((item, idx) => (
-          <li key={idx}>- {item}</li>
-        ))}
-      </ul>
+      <ReelsSlider /> {/* + 릴스 슬라이더 추가 */}
 
-      <h3>🌟 기대 효과</h3>
-      <ul>
-        {resultData.recommendedProduct.benefits.map((item, idx) => (
-          <li key={idx}>✔ {item}</li>
-        ))}
-      </ul>
-
-      <button
-        style={{
-          marginTop: '30px',
-          padding: '10px 20px',
-          fontSize: '1rem',
-          backgroundColor: '#4caf50',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
-        onClick={restartGame}
-      >
-        🔁 다시 하기
+      <button className={styles.restartButton} onClick={restartGame}>
+        🔁 처음부터 다시 하기
       </button>
     </div>
   );
